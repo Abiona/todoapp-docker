@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment  
+metadata: 
+   name: Tomcat-ReplicaSet 
+spec: 
+   replicas: 3 
+   selector:
+   matchlabels:
+      app: Tomcat-ReplicaSet
+   template: 
+      metadata:
+         name: ingnix
+         lables: 
+            app: Tomcat-ReplicaSet 
+            tier: Backend 
+   spec: 
+      containers: 
+         - name: tomcat
+           Tomcatimage: tomcat 8.0
+           ports: 
+               - containerPort: 7474 
